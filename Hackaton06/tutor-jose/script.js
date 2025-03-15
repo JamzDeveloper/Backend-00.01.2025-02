@@ -53,6 +53,7 @@ class Central {
       nombre: valor.nombre,
       direccion: valor.direccion,
       contacto: valor.contacto,
+      central: { ...valor.central, sucursales: [] },
     }));
     localStorage.setItem("sucursales", JSON.stringify(sucursalesTemporal));
   }
@@ -166,6 +167,7 @@ class Sucursal {
 
   //actualizarClientes --> extraer todos los clientes de todos los ticket
   agregarTicket(ticket) {
+    console.log("🚀 ~ Sucursal ~ agregarTicket ~ central:", this.central);
     const existCelRobado = this.central.celularesRobados.find(
       (e) => e.imei == ticket.telefono.imei
     );
