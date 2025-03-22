@@ -7,7 +7,16 @@ const app = express();
 const port = process.env.PORT;
 
 app.get("/hola", (req, res) => {
-  res.send("Hello World!");
+  res.send(`<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola Mundo</h1>
+</body>
+</html>`);
 });
 
 app.get("/github/:username", async (req, res) => {
