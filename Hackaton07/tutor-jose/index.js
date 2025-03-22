@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import { newGithubService } from "./services/github/github.service.js";
+import { newQodService } from "./services/quotes/quotes.service.js";
+import { newNasaService } from "./services/nasa/nasa.service.js";
 
 dotenv.config();
 const app = express();
@@ -24,6 +26,16 @@ app.get("/github/:username", async (req, res) => {
 
   console.log(1, username);
   const result = await newGithubService.getDataUser(username);
+  res.json(result);
+});
+app.get("/qod", async (req, res) => {
+  const result = await newQodService.getQod();
+  res.json(result);
+});
+app.get("/nasa/apod", async (req, res) => {
+  const result = await newNasaService.getDataApod();
+  //retonar un html
+
   res.json(result);
 });
 
