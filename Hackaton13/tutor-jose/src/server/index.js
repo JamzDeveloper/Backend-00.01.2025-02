@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "../config/db/index.js";
+import userRoutes from "../modules/users/routes.js";
 
 class Server {
   constructor() {
@@ -27,7 +28,9 @@ class Server {
     }
   };
 
-  routes() {}
+  routes() {
+    this.app.use("/users", userRoutes);
+  }
 
   listen() {
     this.app.listen(this.port, () => {
