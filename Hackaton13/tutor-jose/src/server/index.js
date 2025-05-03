@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "../config/db/index.js";
 import userRoutes from "../modules/users/routes.js";
+import authRoutes from "../modules/auth/routes.js";
 
 class Server {
   constructor() {
@@ -30,6 +31,7 @@ class Server {
 
   routes() {
     this.app.use("/users", userRoutes);
+    this.app.use("/auth", authRoutes);
   }
 
   listen() {
