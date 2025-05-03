@@ -28,6 +28,12 @@ const createUser = async (req = request, resp = response) => {
 };
 
 const updateUser = async (req = request, resp = response) => {
+  const { user } = req;
+  console.log("🚀 ~ updateUser ~ user:", user);
+
+  ///validar roles
+
+  
   const { password, role, ...rest } = req.body;
   const { userId } = req.params;
   console.log("🚀 ~ updateUser ~ userId:", userId);
