@@ -44,7 +44,7 @@ const createUser = async (req = request, resp = response) => {
 //   const { userId } = req.params;
 //   console.log("🚀 ~ updateUser ~ userId:", userId);
 
-//   const userFound = await UserModel.findById(userId);
+//   const userFound = await UserModel.findByIdPk(userId);
 //   console.log("🚀 ~ updateUser ~ userFound:", userFound);
 //   if (!userFound) {
 //     return resp.status(400).json({ message: "User not found" });

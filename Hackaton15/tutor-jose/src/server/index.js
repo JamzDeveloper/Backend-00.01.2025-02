@@ -6,7 +6,7 @@ import { Server as SocketServer } from "socket.io";
 import { sequelize } from "../config/db/index.js";
 
 import userRoutes from "../modules/users/routes.js";
-// import authRoutes from "../modules/auth/routes.js";
+import authRoutes from "../modules/auth/routes.js";
 
 class Server {
   constructor() {
@@ -34,7 +34,7 @@ class Server {
     try {
       await sequelize.authenticate();
       await sequelize.sync({
-        alter: true,
+        // alter: true,
       });
       console.log("Connection has been established successfully.");
     } catch (err) {
@@ -44,7 +44,7 @@ class Server {
 
   routes() {
     this.app.use("/users", userRoutes);
-    // this.app.use("/auth", authRoutes);
+    this.app.use("/auth", authRoutes);
   }
 
   socket() {
