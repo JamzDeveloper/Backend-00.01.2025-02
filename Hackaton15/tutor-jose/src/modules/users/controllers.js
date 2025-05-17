@@ -6,9 +6,9 @@ import jwt from "jsonwebtoken";
 
 const createUser = async (req = request, resp = response) => {
   const { firstName, lastName, password, email, role, username } = req.body;
-  if (!firstName || !lastName || !password || !email || !username) {
-    return resp.status(400).json({ message: "se requiere datos" });
-  }
+  // if (!firstName || !lastName || !password || !email || !username) {
+  //   return resp.status(400).json({ message: "se requiere datos" });
+  // }
 
   console.log("creating user");
 
