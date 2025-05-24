@@ -7,6 +7,7 @@ import { sequelize } from "../config/db/index.js";
 
 import userRoutes from "../modules/users/routes.js";
 import authRoutes from "../modules/auth/routes.js";
+import stripeRoutes from "../services/stripe/route.js";
 
 class Server {
   constructor() {
@@ -46,6 +47,7 @@ class Server {
   routes() {
     this.app.use("/users", userRoutes);
     this.app.use("/auth", authRoutes);
+    this.app.use("/stripe",stripeRoutes)
   }
 
   socket() {
