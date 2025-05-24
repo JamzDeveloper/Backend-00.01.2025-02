@@ -1,9 +1,15 @@
 import { Router } from "express";
-import {  createCustomerStripe} from "./controller.js";
+import { createCustomerStripe, createProducts,createPayment,foundCheckoutSession } from "./controller.js";
 
 const stripeRoutes = Router();
 
-stripeRoutes.post("/", createCustomerStripe);
+stripeRoutes.post("/customers", createCustomerStripe);
+stripeRoutes.post("/products", createProducts);
+stripeRoutes.post("/payments", createPayment);
+stripeRoutes.post("/checkout", foundCheckoutSession);
+
+
+
 // stripeRoutes.patch("/:stripeId", validateJwt, updatestripe);
 
 export default stripeRoutes;
